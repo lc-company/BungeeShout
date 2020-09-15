@@ -1,0 +1,22 @@
+name: BungeeShout
+version: ${project.version}
+main: cn.lcofficial.bungeeshout.BungeeShout
+author: LC
+description: Shout messages to BungeeCord
+permissions:
+  bungeeshout.bypass.filter:
+    description: Bypass Filter Checking
+  bungeeshout.bypass.cooldown:
+    description: Bypass Cooldown
+  bungeeshout.bypass.url:
+    description: Bypass URL
+  bungeeshout.cooldown.60s:
+    description: Set Cooldown to 60s
+  bungeeshout.admin:
+    description: Plugin Admin Permission
+    children:
+      bungeeshout.bypass.cooldown: true
+      bungeeshout.bypass.filter: true
+      bungeeshout.bypass.url: true
+  bungeeshout.shout:
+    descriptio: Allow using shout

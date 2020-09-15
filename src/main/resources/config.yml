@@ -1,0 +1,14 @@
+# 此插件遵循MIT协议
+# 版权信息： Copyright LC 2015-2020. All right reserved.
+# ====================================================
+# 此文件为插件配置文件
+
+# 是否允许消息中出现URL链接
+allowURL: true
+
+# 发现消息指令（可多个）
+commands:
+  - 'shout'
+
+# 是否开启冷却时间
+allowCooldown: true

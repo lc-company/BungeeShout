@@ -1,0 +1,31 @@
+# 此插件遵循MIT协议
+# 版权信息： Copyright LC 2015-2020. All right reserved.
+# ====================================================
+# %word% -> 违禁词报错消息提示违禁词
+# %cooldown% -> 冷却时间
+# 此文件为插件消息设置文件
+
+# 插件消息输出前缀
+pluginPrefix: '&cSHOUT-PLUGIN'
+# 消息输出前缀
+messagePrefix: '&7&l[&r&6SHOUT&r&7&l]'
+# 服务器传送文本
+connectText: '&n&bCONNECT'
+# 玩家名颜色/前缀
+playerColor: '&c'
+# 消息颜色/前缀
+messageColor: '&e'
+# 存在违禁词错误i信息
+filterCheckMessage: 'YOU CANNOT SEND THIS MESSAGE WITH %WORD%'
+# 未允许URL消息报错信息
+urlNotAllowMessage: 'YOU CANNOT SEND URL'
+# 消息冷却
+cooldownMessage: 'SHOUT COOLDOWN REMAINING: %cooldown%'
+# 开始重载消息
+startReloadingMessage: 'START RELOADING'
+# 重载完成消息
+reloadedMessage: 'SHOUT RELOADED'
+# 空消息错误消息
+noneErrorMessage: 'NO MESSAGE HAS SEND!'
+# 没有权限消息
+noPermissionMessage: 'YOU DONT HAVE PERMISSION TO DO THIS'
