@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.lc-official</groupId>
-    <artifactId>BungeeChat</artifactId>
+    <artifactId>BungeeShout</artifactId>
     <version>2.3</version>
     <packaging>jar</packaging>
 
-    <name>BungeeChat</name>
+    <name>BungeeShout</name>
 
     <properties>
         <java.version>1.8</java.version>
