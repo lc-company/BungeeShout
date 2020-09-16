@@ -28,7 +28,8 @@ public class Message {
             RELOADED_MESSAGE,
             NONE_ERROR_MESSAGE,
             CONSOLE_PREFIX,
-            NO_PERM_MESSAGE;
+            NO_PERM_MESSAGE,
+            CONNECT_ERROR;
 
     public static void loadMessages() throws IOException {
 
@@ -51,7 +52,7 @@ public class Message {
         NONE_ERROR_MESSAGE = messageConfig.getString("noneErrorMessage");
         CONSOLE_PREFIX = messageConfig.getString("consolePrefix");
         NO_PERM_MESSAGE = messageConfig.getString("noPermissionMessage");
-
+        CONNECT_ERROR = messageConfig.getString("CONNECT_ERROR");
     }
     
 }

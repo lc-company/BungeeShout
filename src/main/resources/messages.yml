@@ -29,3 +29,5 @@ reloadedMessage: 'SHOUT RELOADED'
 noneErrorMessage: 'NO MESSAGE HAS SEND!'
 # 没有权限消息
 noPermissionMessage: 'YOU DONT HAVE PERMISSION TO DO THIS'
+# 连接错误消息
+connectError: 'CANNOT CONNECT TO THIS SERVER, PLEASE CONTACT THE STAFF'

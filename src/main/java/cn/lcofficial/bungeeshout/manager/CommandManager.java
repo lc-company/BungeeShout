@@ -9,8 +9,10 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.protocol.packet.Chat;
 
 import java.io.IOException;
 
@@ -108,12 +110,13 @@ public class CommandManager {
             public void execute(CommandSender sender, String[] args) {
                 if (args.length > 0) {
                     if (sender instanceof ProxiedPlayer) {
-                        try {
-                            ((ProxiedPlayer) sender).connect(BungeeShout.getInstance().getProxy().getServerInfo(args[0]));
-                        } catch (Exception e) {
-                            sender.sendMessage(e.getLocalizedMessage());
+                        ServerInfo server = BungeeShout.getInstance().getProxy().getServerInfo(args[0]);
+                        if (server.canAccess(sender)) {
+                            ((ProxiedPlayer) sender).connect(server);
+                            BungeeShout.getInstance().getLogger().info("Player " + ((ProxiedPlayer) sender).getDisplayName() + " connected to " + args[0]);
+                        } else {
+                            sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONNECT_ERROR)));
                         }
-                        BungeeShout.getInstance().getLogger().info("Player " + ((ProxiedPlayer) sender).getDisplayName() + " connected to " + args[0]);
                     }
                     else sender.sendMessage(new TextComponent("Only player can do this!"));
                 }
