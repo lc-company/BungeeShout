@@ -62,7 +62,7 @@ public class CommandManager {
                                 TextComponent shoutContent = new TextComponent(content);
 
                                 TextComponent connectContent = new TextComponent(ChatColor.RESET + ChatColor.translateAlternateColorCodes('&', Message.connectText));
-                                connectContent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/sconnect " + ((ProxiedPlayer) sender).getServer().getInfo().getName()));
+                                connectContent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/connect:" + ((ProxiedPlayer) sender).getServer().getInfo().getName()));
                                 TextComponent[] hoverText = new TextComponent[1];
                                 hoverText[0] = new TextComponent(((ProxiedPlayer) sender).getServer().getInfo().getName());
                                 connectContent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
