@@ -4,11 +4,14 @@ import cn.lcofficial.bungeeshout.BungeeShout;
 import cn.lcofficial.bungeeshout.config.Config;
 import cn.lcofficial.bungeeshout.config.Filter;
 import cn.lcofficial.bungeeshout.config.Message;
+import cn.lcofficial.bungeeshout.config.Version;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
+import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Content;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
@@ -82,45 +85,49 @@ public class CommandManager {
         }
     }
 
-    public static void registerReloadCommand() {
+    public static void registerPluginCommand() {
 
-        BungeeShout.getInstance().getProxy().getPluginManager().registerCommand(BungeeShout.getInstance(), new Command("shoutreload") {
+        BungeeShout.getInstance().getProxy().getPluginManager().registerCommand(BungeeShout.getInstance(), new Command("bungeeshout") {
             @Override
             public void execute(CommandSender sender, String[] args) {
                 try {
-                    BungeeShout.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.START_RELOADING_MESSAGE));
-                    sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.START_RELOADING_MESSAGE)));
+                    if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
+                        BungeeShout.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.START_RELOADING_MESSAGE));
+                        sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.START_RELOADING_MESSAGE)));
 
-                    Filter.reloadDict();
-                    Config.loadConfig();
-                    registerShoutCommand();
+                        Filter.reloadDict();
+                        Config.loadConfig();
+                        registerShoutCommand();
 
-                    sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.RELOADED_MESSAGE)));
-                    BungeeShout.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.RELOADED_MESSAGE));
+                        sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.RELOADED_MESSAGE)));
+                        BungeeShout.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&', Message.CONSOLE_PREFIX) + ChatColor.translateAlternateColorCodes('&', Message.RELOADED_MESSAGE));
+                    } else {
+                        Version.showVersion((ProxiedPlayer) sender);
+                    }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    BungeeShout.getInstance().getLogger().info(e.getLocalizedMessage());
                 }
             }
         });
     }
 
     public static void registerConnectCommand() {
-        BungeeShout.getInstance().getProxy().getPluginManager().registerCommand(BungeeShout.getInstance(), new Command("sconnect") {
-            @Override
-            public void execute(CommandSender sender, String[] args) {
-                if (args.length > 0) {
-                    if (sender instanceof ProxiedPlayer) {
-                        ServerInfo server = BungeeShout.getInstance().getProxy().getServerInfo(args[0]);
+        for (String target : BungeeShout.getInstance().getProxy().getServers().keySet()) {
+            BungeeShout.getInstance().getProxy().getPluginManager().registerCommand(BungeeShout.getInstance(), new Command("connect:" + target) {
+                @Override
+                public void execute(CommandSender sender, String[] args) {
+                    ServerInfo server = BungeeShout.getInstance().getProxy().getServers().get(target);
+                    if (sender instanceof  ProxiedPlayer) {
                         if (server.canAccess(sender)) {
                             ((ProxiedPlayer) sender).connect(server);
-                            BungeeShout.getInstance().getLogger().info("Player " + ((ProxiedPlayer) sender).getDisplayName() + " connected to " + args[0]);
+                            BungeeShout.getInstance().getLogger().info("Player " + ((ProxiedPlayer) sender).getDisplayName() + " has connect to server: " + target);
                         } else {
-                            sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONNECT_ERROR)));
+                            TextComponent text = new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONNECT_ERROR));
+                            sender.sendMessage(text);
                         }
-                    }
-                    else sender.sendMessage(new TextComponent("Only player can do this!"));
+                    } else sender.sendMessage(new TextComponent(ChatColor.RED + "Only player can do this!"));
                 }
-            }
-        });
+            });
+        }
     }
 }

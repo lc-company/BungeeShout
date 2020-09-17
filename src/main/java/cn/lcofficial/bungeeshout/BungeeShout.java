@@ -23,7 +23,7 @@ public final class BungeeShout extends Plugin {
             Filter.reloadDict();
             CommandManager.registerShoutCommand();
             CommandManager.registerConnectCommand();
-            CommandManager.registerReloadCommand();
+            CommandManager.registerPluginCommand();
         } catch (IOException e) {
             e.printStackTrace();
         }
