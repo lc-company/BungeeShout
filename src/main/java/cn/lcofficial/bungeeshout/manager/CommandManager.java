@@ -7,15 +7,12 @@ import cn.lcofficial.bungeeshout.config.Message;
 import cn.lcofficial.bungeeshout.config.Version;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.chat.hover.content.Content;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
-import net.md_5.bungee.protocol.packet.Chat;
 
 import java.io.IOException;
 
@@ -40,7 +37,7 @@ public class CommandManager {
                                         + ": "
                                         + ChatColor.translateAlternateColorCodes('&', Message.messageColor);
                                 StringBuilder message = new StringBuilder();
-                                for (String arg : args) message.append(arg);
+                                for (String arg : args) message.append(" ").append(arg);
                                 content += message;
 
                                 if (!Filter.check(message.toString()) && !sender.hasPermission("bungeeshout.bypass.filter")) {

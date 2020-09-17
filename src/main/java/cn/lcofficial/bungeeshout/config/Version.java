@@ -2,13 +2,8 @@ package cn.lcofficial.bungeeshout.config;
 
 import cn.lcofficial.bungeeshout.BungeeShout;
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.protocol.packet.Chat;
-
-import javax.swing.*;
-import java.lang.management.PlatformLoggingMXBean;
 
 public class Version {
 
