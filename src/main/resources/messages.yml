@@ -6,28 +6,28 @@
 # 此文件为插件消息设置文件
 
 # 插件消息输出前缀
-pluginPrefix: '&cSHOUT-PLUGIN'
+pluginPrefix: '&c喊话插件'
 # 消息输出前缀
-messagePrefix: '&7&l[&r&6SHOUT&r&7&l]'
+messagePrefix: '&7&l[&r&6全服喊话&r&7&l] '
 # 服务器传送文本
-connectText: '&n&bCONNECT'
+connectText: '&n&b(点击连接)'
 # 玩家名颜色/前缀
 playerColor: '&c'
 # 消息颜色/前缀
 messageColor: '&e'
 # 存在违禁词错误i信息
-filterCheckMessage: 'YOU CANNOT SEND THIS MESSAGE WITH %WORD%'
+filterCheckMessage: '&b你不能发送: %WORD%'
 # 未允许URL消息报错信息
-urlNotAllowMessage: 'YOU CANNOT SEND URL'
+urlNotAllowMessage: '&b你不能发送URL链接'
 # 消息冷却
-cooldownMessage: 'SHOUT COOLDOWN REMAINING: %cooldown%'
+cooldownMessage: '&b喊话冷却时间: %cooldown%'
 # 开始重载消息
-startReloadingMessage: 'START RELOADING'
+startReloadingMessage: '&3开始重载插件'
 # 重载完成消息
-reloadedMessage: 'SHOUT RELOADED'
+reloadedMessage: '&3插件重载成功'
 # 空消息错误消息
-noneErrorMessage: 'NO MESSAGE HAS SEND!'
+noneErrorMessage: '&c你没有发送任何消息!'
 # 没有权限消息
-noPermissionMessage: 'YOU DONT HAVE PERMISSION TO DO THIS'
-# 连接错误消息
-connectError: 'CANNOT CONNECT TO THIS SERVER, PLEASE CONTACT THE STAFF'
+noPermissionMessage: '&c你没有权限这样做!'
+# 连接至服务器错误消息
+connectErrorMessage: '&c无法连接至服务器 %server%'

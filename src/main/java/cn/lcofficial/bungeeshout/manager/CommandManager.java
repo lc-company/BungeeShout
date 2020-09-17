@@ -122,7 +122,7 @@ public class CommandManager {
                             ((ProxiedPlayer) sender).connect(server);
                             BungeeShout.getInstance().getLogger().info("Player " + ((ProxiedPlayer) sender).getDisplayName() + " has connect to server: " + target);
                         } else {
-                            TextComponent text = new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONNECT_ERROR));
+                            TextComponent text = new TextComponent(ChatColor.translateAlternateColorCodes('&', Message.CONNECT_ERROR.replaceAll("%server%", target)));
                             sender.sendMessage(text);
                         }
                     } else sender.sendMessage(new TextComponent(ChatColor.RED + "Only player can do this!"));

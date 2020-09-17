@@ -49,10 +49,11 @@ public class Message {
         URL_NOT_ALLOW_MESSAGE = messageConfig.getString("urlNotAccessMessage");
         COOLDOWN_MESSAGE = messageConfig.getString("cooldownMessage");
         START_RELOADING_MESSAGE = messageConfig.getString("startReloadingMessage");
+        RELOADED_MESSAGE = messageConfig.getString("reloadedMessage");
         NONE_ERROR_MESSAGE = messageConfig.getString("noneErrorMessage");
         CONSOLE_PREFIX = messageConfig.getString("consolePrefix");
         NO_PERM_MESSAGE = messageConfig.getString("noPermissionMessage");
-        CONNECT_ERROR = messageConfig.getString("CONNECT_ERROR");
+        CONNECT_ERROR = messageConfig.getString("connectErrorMessage");
     }
     
 }
