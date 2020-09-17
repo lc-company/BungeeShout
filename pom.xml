@@ -6,7 +6,7 @@
 
     <groupId>cn.lc-official</groupId>
     <artifactId>BungeeShout</artifactId>
-    <version>2.3</version>
+    <version>2.4</version>
     <packaging>jar</packaging>
 
     <name>BungeeShout</name>
